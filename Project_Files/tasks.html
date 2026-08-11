@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAFE Project Tasks</title>
+</head>
+<body>
+    <header>
+        <h1>Tasks</h1>
+    </header>
+    <nav>
+        <ul>
+            <a href="home.html">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="contact.html">Contact</a>
+        </ul>
+    </nav>
+    <main>
+        <article>
+            <h2>Create Task:</h2>
+        </article>
+
+        <!-- Task Creation Form -->
+        <form action="/submit" method="post">
+            <label for="taskName">Task Name:</label>
+            <br>
+            <input type="text" id="taskName" name="inputName" required>
+            <br><br>
+
+            <label for="taskDueDate">Task Due Date:</label>
+            <br>
+            <input type="date" id="taskDueDate" name="inputDate" required>
+            <br><br>
+
+            <label for="taskPriority">Task Priority:</label>
+            <br>
+            <select id="taskPriority" name="priorityInput" required>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <br><br>
+
+            <label for="taskConsultant">Task Consultant:</label>
+            <br>
+            <select for="taskConsultant" name="consultantInput">
+                <option value="default">No Consultant</option>
+                <option value="engineeringConsultantIris">Iris Jones</option>
+                <option value="hrConsultantRuby">Ruby Jones</option>
+                <option value="ictConsultantXena">Xena Jones</option>
+                <option value="marketingConsultantGwen">Gwen Brown</option>
+            </select>
+            <br><br>
+            
+            <input type="submit" value="Create Task">
+        </form>
+
+        <br><br>
+
+        <!-- Task Search Bar -->
+        <h2>Search Task:</h2>
+        <input type="text" placeholder="Search...">
+
+
+        <!-- Task List -->
+
+        <table border="1">
+            <tr>
+                <th>Task Name</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Consultant</th>
+                <th>Completed</th>
+            </tr>
+            <tr>
+                <td>Input Name</td>
+                <td>INPUT DATE</td>
+                <td>INPUT PRIORITY</td>
+                <td>INPUT CONSULTANT</td>
+                <td><input type="checkbox" name="completed"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Delete Tasks">
+    </main>
+</body>
+<footer>
+    <p>Link to Privacy Policy NOT COMPLETED</p>
+    <p>Link to Internet Usage Policy NOT COMPLETED</p>
+</footer>
+</html>
