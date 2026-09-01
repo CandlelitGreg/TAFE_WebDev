@@ -1,0 +1,261 @@
+body {
+    background-color: #ffffff;
+    font-family: Calibri, monospace;
+    margin: 0%;
+}
+
+h2 {
+    font-family: Georgia;
+}
+
+header {
+    font-family: Georgia;
+    font-size: 16pt;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+nav.narrow-nav {
+    content-visibility: hidden;
+}
+
+nav.wide-nav {
+    content-visibility: visible;
+    display: flex;
+}
+
+[id=tasksLinkWide],
+[id=contactLinkWide]
+{
+    font-family: Georgia;
+    font-weight: bold;
+    font-size: 16pt;
+    border:#A08463 solid;
+    background-color: #DDAB5E;
+    border-width: 3px 3px 3px 3px;
+    padding: 7px;
+    color: black;
+    text-decoration: none;
+}
+
+[id=tasksLinkWide] {
+    border-width: 3px 3px 1.5px 3px;
+}
+
+[id=contactLinkWide] {
+    border-width: 1.5px 3px 3px 3px;
+}
+
+[id=tasksLinkNarrow],
+[id=contactLinkNarrow]
+{
+    font-family: Georgia;
+    font-weight: bold;
+    font-size: 16pt;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+
+
+ul {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #424754;
+    color: #fff;
+    border: solid #077A99;
+    border-width: 6px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 0% 1.5%;
+    margin: 0;
+}
+
+div.header-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: solid #DDAB5E;
+    border-width: 0px 0px 6.5px 0px;
+    padding: 0px 25px;
+    margin: 0;
+}
+
+div.image-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+div.content-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1vh;
+}
+
+div.page-layout {
+    padding: 0% 2%;
+    min-height: 86.5vh;
+}
+
+img {
+    max-width: 50vw;
+    max-height: 45vh;
+    padding: 5px 0px;
+    padding-top: 2vh;
+}
+
+[id=gelosLogoHome] {
+    max-width: 25vw;
+    padding: 0px;
+}
+
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th, table td {
+    border: 3px solid #424754;
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #077A99;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(even) {
+    background-color: #94B2BF;
+}
+
+table tbody td:hover {
+    background-color: #DDAB5E;
+}
+
+table tr:hover {
+    background-color: #A08463;
+}
+
+/* button{
+    width: 30%;
+    padding: 12px;
+    background-color: #3d3dff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+} */
+
+
+[type="text"],
+[type="email"],
+[type="date"]
+{
+    width: auto;
+    min-width: none;
+    padding: 12px;
+    border: 2px solid #424754;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="submit"] {
+    min-width: none;
+    width: 30%;
+    padding: 12px;
+    background-color: #077A99;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+}
+
+[id=contactEmail],
+[id=contactName] 
+{
+    width: 50%;
+}
+
+[id=contactComment] {
+    width: 85%;
+}
+
+form {
+    width: 100%;
+}
+
+select {
+    width : 60%;
+    padding: 12px;
+    border: 2px solid #077A99;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 825px) {
+    div.content-layout {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    div.header-grid {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    header {
+        display: flex;
+        text-align: center;
+    }
+
+    ul {
+        display: flex;
+        align-self: center;
+    }
+
+    img {
+        max-width: 90vw;
+        max-height: 90vh;
+        padding: 5px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 12.5vw 0px 0px;
+    }
+
+    nav.narrow-nav {
+        content-visibility: visible;
+        display: flex;
+        align-items: flex-start;
+        background: #fff;
+        border: #A08463 5px solid;
+    }
+
+    nav.wide-nav {
+        content-visibility: hidden;
+    }
+}
