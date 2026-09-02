@@ -161,7 +161,7 @@ function DisplaySearchResults(search) {
     let searchStatus = [];
     for (let i = 0; i < taskList.length; i++)
     {
-        let nameSplit = taskList[i].name.split(search);
+        let nameSplit = taskList[i].name.toLowerCase().split(search.toLowerCase());
         if (nameSplit.length > 1)
         {
             searchTasks.push(taskList[i]);
