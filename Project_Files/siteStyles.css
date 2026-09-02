@@ -173,11 +173,11 @@ table tr:hover {
 [type="date"]
 {
     width: auto;
-    min-width: none;
     padding: 12px;
-    border: 2px solid #424754;
+    border: 2px solid #077A99;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 
 input[type="submit"] {
     min-width: none;
@@ -189,6 +189,18 @@ input[type="submit"] {
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 4px;
+}
+
+.taskEditButton {
+    min-width: fit-content;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+[id=searchInput] {
+    width: 40vw
 }
 
 [id=contactEmail],

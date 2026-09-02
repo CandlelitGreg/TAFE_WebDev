@@ -48,7 +48,7 @@
         </article>
 
         <!-- Task Creation Form -->
-        <form id="AddTaskToList" action="tasks.html" method="post">
+        <form id="AddTaskToList" onsubmit="return GetTask()">
             <label for="taskName">Task Name:</label>
             <br>
             <input type="text" id="taskName" name="inputName" required>
@@ -62,9 +62,9 @@
             <label for="taskPriority">Task Priority:</label>
             <br>
             <select id="taskPriority" name="priorityInput" required>
-                <option value="high">High</option>
-                <option value="medium">Medium</option>
-                <option value="low">Low</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
             </select>
             <br><br>
 
@@ -72,10 +72,10 @@
             <br>
             <select id="taskConsultant" name="consultantInput">
                 <option value="default">No Consultant</option>
-                <option value="engineeringConsultantIris">Iris Jones</option>
-                <option value="hrConsultantRuby">Ruby Jones</option>
-                <option value="ictConsultantXena">Xena Jones</option>
-                <option value="marketingConsultantGwen">Gwen Brown</option>
+                <option value="Iris Jones - Engineering Consultant">Iris Jones</option>
+                <option value="Ruby Jones - HR Consultant">Ruby Jones</option>
+                <option value="Xena Jones - ICT Consultant">Xena Jones</option>
+                <option value="Gwen Brown - Marketing Consultant">Gwen Brown</option>
             </select>
             <br><br>
             
@@ -88,8 +88,10 @@
 
         <!-- Task Search Bar -->
         <h2>Search Task:</h2>
-        <input type="text" placeholder="Search...">
-        <input type="submit" value="Search Task">
+        <form id="searchForm" onsubmit="return SearchForTask(this)">
+            <input id="searchInput" type="text" placeholder="Search...">
+            <input type="submit" value="Search Task">
+        </form>
         <br><br>
 
         <!-- Task List -->
@@ -117,8 +119,8 @@
 
         
         <br>
-        <input type="submit" value="Delete Tasks">
     </main>
+    <script src="siteFuncs.js"></script>
 </body>
 </div>
 <br>
