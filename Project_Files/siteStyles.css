@@ -73,6 +73,12 @@ ul {
     flex-direction: column;
 }
 
+[id=homePageInstructions] {
+    text-align: left;
+    list-style-type: circle;
+    line-height: 20pt;
+}
+
 footer {
     background-color: #424754;
     color: #fff;
@@ -109,7 +115,7 @@ div.content-layout {
 
 div.page-layout {
     padding: 0% 2%;
-    min-height: 86.5vh;
+    min-height: 88vh;
 }
 
 img {
@@ -126,7 +132,7 @@ img {
 
 
 table {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Calibri;
     border-collapse: collapse;
     width: 100%;
 }
@@ -140,6 +146,7 @@ table th, table td {
 table th {
     background-color: #077A99;
     color: white;
+    font-family: Georgia;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -163,7 +170,7 @@ table tr:hover {
     color: white;
     border: none;
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia;
     border-radius: 4px;
 } */
 
@@ -175,7 +182,7 @@ table tr:hover {
     width: auto;
     padding: 12px;
     border: 2px solid #077A99;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia;
 }
 
 
@@ -187,7 +194,8 @@ input[type="submit"] {
     color: white;
     border: none;
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia;
+    font-weight: bold;
     border-radius: 4px;
 }
 
@@ -221,7 +229,7 @@ select {
     width : 60%;
     padding: 12px;
     border: 2px solid #077A99;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia;
 }
 
 @media screen and (max-width: 825px) {
