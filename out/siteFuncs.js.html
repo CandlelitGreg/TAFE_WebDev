@@ -1,4 +1,32 @@
-const form = document.getElementById("AddTaskToList");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: siteFuncs.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: siteFuncs.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const form = document.getElementById("AddTaskToList");
 const taskDetailsContainer = document.getElementById("taskDetailsContainer");
 const displayedConsultants = document.getElementById("taskConsultant");
 const searchBar = document.getElementById("searchInput");
@@ -40,7 +68,7 @@ async function readFile() {
     const data = await fetch('./roles.txt');
     const text = await data.text();
     consultantListOG = text.split(",\r\n");
-    for (let i = 0; i < consultantListOG.length; i++)
+    for (let i = 0; i &lt; consultantListOG.length; i++)
     {
         consultantListSplit.push(consultantListOG[i].split("|"));
     }
@@ -59,7 +87,7 @@ readFile();
 * @returns {*} 
 */
 consultantSearchBar.addEventListener('input', (event) => {
-    if (event.target.value.trim() != null && event.target.value.trim() != '' && typeof(event.target.value.trim()) === "string") {
+    if (event.target.value.trim() != null &amp;&amp; event.target.value.trim() != '' &amp;&amp; typeof(event.target.value.trim()) === "string") {
         SearchConsultant(event.target.value.trim().toString());
     }
 })
@@ -96,81 +124,81 @@ searchBar.addEventListener('input', (event) => {
 function DisplayTasks(tasks = taskList, completed = taskStatus)
 {
     let table = document.getElementById("taskTable");
-    let htmlTemplate = `<thead>
-                <tr>
-                    <th>Task Name</th>
-                    <th>Due Date</th>
-                    <th>Priority</th>
-                    <th>Consultant</th>
-                    <th>Complete</th>
-                </tr>
-            </thead>
-            <tbody>`;
+    let htmlTemplate = `&lt;thead>
+                &lt;tr>
+                    &lt;th>Task Name&lt;/th>
+                    &lt;th>Due Date&lt;/th>
+                    &lt;th>Priority&lt;/th>
+                    &lt;th>Consultant&lt;/th>
+                    &lt;th>Complete&lt;/th>
+                &lt;/tr>
+            &lt;/thead>
+            &lt;tbody>`;
     let html = htmlTemplate;
     //Writes row contents with task details
-    for (let i = 0; i < tasks.length; i++)
+    for (let i = 0; i &lt; tasks.length; i++)
     {
         
         /* The if statement below checks whether this index of the taskList has been 
         marked as completed so the display and buttons can be altered respectively */
         if (completed[i])
         {
-            html += `<tr id="tableRow${i}">
-            <td id="task${i}Name" class="strikethrough">${tasks[i].name}</td>
-            <td id="task${i}DueDate" class="strikethrough">${tasks[i].dueDate}</td>
-            <td id="task${i}Priority" class="strikethrough">${tasks[i].priority}</td>`;
+            html += `&lt;tr id="tableRow${i}">
+            &lt;td id="task${i}Name" class="strikethrough">${tasks[i].name}&lt;/td>
+            &lt;td id="task${i}DueDate" class="strikethrough">${tasks[i].dueDate}&lt;/td>
+            &lt;td id="task${i}Priority" class="strikethrough">${tasks[i].priority}&lt;/td>`;
             if (tasks[i].consultant != null) {
-                html += `<td id="task${i}Consultant" class="strikethrough">${tasks[i].consultant}</td>`;
+                html += `&lt;td id="task${i}Consultant" class="strikethrough">${tasks[i].consultant}&lt;/td>`;
             } else {
-                html += `<td id="task${i}Consultant" class="strikethrough">No Attached Consultant</td>`;
+                html += `&lt;td id="task${i}Consultant" class="strikethrough">No Attached Consultant&lt;/td>`;
             }
-            html += `<td><form id="completeTask${i}" onsubmit="return DeleteTask(${i})">
-                <input class="taskEditButton" type="submit" value="Delete Task">
-                </form>
-                </td>
-            </tr>`;
+            html += `&lt;td>&lt;form id="completeTask${i}" onsubmit="return DeleteTask(${i})">
+                &lt;input class="taskEditButton" type="submit" value="Delete Task">
+                &lt;/form>
+                &lt;/td>
+            &lt;/tr>`;
         } 
         else 
         {
-            html += `<tr id="tableRow${i}">
-            <td id="task${i}Name">${tasks[i].name}</td>
-            <td id="task${i}DueDate">${tasks[i].dueDate}</td>
-            <td id="task${i}Priority">${tasks[i].priority}</td>`;
+            html += `&lt;tr id="tableRow${i}">
+            &lt;td id="task${i}Name">${tasks[i].name}&lt;/td>
+            &lt;td id="task${i}DueDate">${tasks[i].dueDate}&lt;/td>
+            &lt;td id="task${i}Priority">${tasks[i].priority}&lt;/td>`;
             if (tasks[i].consultant != null) {
-                html += `<td id="task${i}Consultant">${tasks[i].consultant}</td>`;
+                html += `&lt;td id="task${i}Consultant">${tasks[i].consultant}&lt;/td>`;
             } else {
-                html += `<td id="task${i}Consultant">No Attached Consultant</td>`;
+                html += `&lt;td id="task${i}Consultant">No Attached Consultant&lt;/td>`;
             }
-            html += `<td><form id="completeTask${i}" onsubmit="return CompleteTask(this, ${i})">
-                <input class="taskEditButton" type="submit" value="Complete Task">
-                </form>
-                </td>
-            </tr>`;
+            html += `&lt;td>&lt;form id="completeTask${i}" onsubmit="return CompleteTask(this, ${i})">
+                &lt;input class="taskEditButton" type="submit" value="Complete Task">
+                &lt;/form>
+                &lt;/td>
+            &lt;/tr>`;
         }
         
         
     }
-    html += `</tbody>`
+    html += `&lt;/tbody>`
     //If there are no tasks, the default table is displayed
-    table.innerHTML = html === `${htmlTemplate}</tbody>` ?
-        `<thead>
-                <tr>
-                    <th>Task Name</th>
-                    <th>Due Date</th>
-                    <th>Priority</th>
-                    <th>Consultant</th>
-                    <th>Complete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>INPUT NAME</td>
-                    <td>INPUT DATE</td>
-                    <td>INPUT PRIORITY</td>
-                    <td>INPUT CONSULTANT</td>
-                    <td><input type="checkbox" name="completed"></td>
-                </tr>
-            </tbody>` : html;
+    table.innerHTML = html === `${htmlTemplate}&lt;/tbody>` ?
+        `&lt;thead>
+                &lt;tr>
+                    &lt;th>Task Name&lt;/th>
+                    &lt;th>Due Date&lt;/th>
+                    &lt;th>Priority&lt;/th>
+                    &lt;th>Consultant&lt;/th>
+                    &lt;th>Complete&lt;/th>
+                &lt;/tr>
+            &lt;/thead>
+            &lt;tbody>
+                &lt;tr>
+                    &lt;td>INPUT NAME&lt;/td>
+                    &lt;td>INPUT DATE&lt;/td>
+                    &lt;td>INPUT PRIORITY&lt;/td>
+                    &lt;td>INPUT CONSULTANT&lt;/td>
+                    &lt;td>&lt;input type="checkbox" name="completed">&lt;/td>
+                &lt;/tr>
+            &lt;/tbody>` : html;
 }
 //Automatically displays existing tasks at page launch
 DisplayTasks(taskList, taskStatus);
@@ -223,7 +251,7 @@ function SearchConsultant(input)
         let searchFullResults = [];
         let searchRoleResults = GetSearchResults(input.split("|")[0], consultantListSplit);
         let searchEmployeeResults = GetSearchResults(input.split("|")[1], consultantListSplit);
-        for (let i = 0; i < searchEmployeeResults.length; i++)
+        for (let i = 0; i &lt; searchEmployeeResults.length; i++)
         {
             if (BinarySearch(searchEmployeeResults[i][0], searchRoleResults))
             {
@@ -236,7 +264,7 @@ function SearchConsultant(input)
     
     let searchRoleResults = GetSearchResults(input, consultantListSplit);
     let searchEmployeeResults = GetSearchResults(input, consultantListSplit);
-    for (let i = 0; i < searchEmployeeResults.length; i++)
+    for (let i = 0; i &lt; searchEmployeeResults.length; i++)
     {
         if (!BinarySearch(searchEmployeeResults[i][0], searchRoleResults))
         {
@@ -253,23 +281,23 @@ function SearchConsultant(input)
 function DisplayConsultantOptions(possibleConsultants)
 {
     let formattedList = [];
-    let html = `<option value="default">Select Consultant</option>`;
+    let html = `&lt;option value="default">Select Consultant&lt;/option>`;
     //If the employee selected is not a typical consultant append note to their name in task details
-    for (let i = 0; i < possibleConsultants.length; i++)
+    for (let i = 0; i &lt; possibleConsultants.length; i++)
     {
         if (textInString("consultant", possibleConsultants[i][0]))
         {
             formattedList.push(`${possibleConsultants[i][1]} - ${possibleConsultants[i][0]}`);
-            html += `\n<option value="${formattedList[i]}">${formattedList[i]}</option>`;
+            html += `\n&lt;option value="${formattedList[i]}">${formattedList[i]}&lt;/option>`;
         }
         else 
         {
             formattedList.push(`${possibleConsultants[i][1]} - ${possibleConsultants[i][0]} (NOT TYPICALLY A CONSULTANT)`);
-            html += `\n<option value="${formattedList[i]}">${possibleConsultants[i][1]} - ${possibleConsultants[i][0]}</option>`;
+            html += `\n&lt;option value="${formattedList[i]}">${possibleConsultants[i][1]} - ${possibleConsultants[i][0]}&lt;/option>`;
         }
     }
-    if (formattedList.length < 1) {
-        html = `<option value="default">No Employees Match Your Search</option>`;
+    if (formattedList.length &lt; 1) {
+        html = `&lt;option value="default">No Employees Match Your Search&lt;/option>`;
     }
     displayedConsultants.innerHTML = html;
 }
@@ -285,14 +313,14 @@ function BinarySearch(input, list)
 {
     let lowIndex = 0;
     let highIndex = list.length - 1;
-    while (lowIndex <= highIndex)
+    while (lowIndex &lt;= highIndex)
     {
         let midIndex = Math.floor(lowIndex + (highIndex - lowIndex) / 2);
         if (list[midIndex][0] == input)
         {
             return true;
         }
-        else if (list[midIndex][0] < input)
+        else if (list[midIndex][0] &lt; input)
         {
             lowIndex = midIndex + 1;
         }        
@@ -324,7 +352,7 @@ function CompleteTask(element, index) {
         return false;
     }
     //Find each tr td and alter them to add the strikethrough class (this will cross out their text)
-    for (let i = 0; i < element.parentElement.parentElement.children.length - 1; i++)
+    for (let i = 0; i &lt; element.parentElement.parentElement.children.length - 1; i++)
     {
         element.parentElement.parentElement.children[i].classList.toggle("strikethrough");
     }
@@ -359,7 +387,7 @@ function DisplaySearchResults(search) {
     let searchStatus = [];
 
     //Splits string on search text to check whether it is present
-    for (let i = 0; i < taskList.length; i++)
+    for (let i = 0; i &lt; taskList.length; i++)
     {
         if (textInString(taskList[i].name, search))
         {
@@ -369,20 +397,20 @@ function DisplaySearchResults(search) {
     }
 
     //If there are no tasks matching search results show default result
-    if (searchTasks.length < 1)
+    if (searchTasks.length &lt; 1)
     {
         let table = document.getElementById("taskTable");
-        let html = `<thead>
-                <tr>
-                    <th>No Tasks Match Your Search</th>
-                </tr>
-            </thead>`;
+        let html = `&lt;thead>
+                &lt;tr>
+                    &lt;th>No Tasks Match Your Search&lt;/th>
+                &lt;/tr>
+            &lt;/thead>`;
         table.innerHTML = html === `` ?
-        `<thead>
-            <tr>
-                <th>No Tasks Match Your Search</th>
-            </tr>
-        </thead>` : html;
+        `&lt;thead>
+            &lt;tr>
+                &lt;th>No Tasks Match Your Search&lt;/th>
+            &lt;/tr>
+        &lt;/thead>` : html;
     }
     else
     {
@@ -401,7 +429,7 @@ function DisplaySearchResults(search) {
 function GetSearchResults(input, searchList)
 {
     let positiveResults = [];
-    for (let i = 0; i < searchList.length; i++)
+    for (let i = 0; i &lt; searchList.length; i++)
     {
         if (textInString(input, searchList[i]))
         {
@@ -426,4 +454,26 @@ function textInString(text, string)
         result = true;
     }
     return result;
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddTaskToList">AddTaskToList</a></li><li><a href="global.html#BinarySearch">BinarySearch</a></li><li><a href="global.html#CompleteTask">CompleteTask</a></li><li><a href="global.html#DisplayConsultantOptions">DisplayConsultantOptions</a></li><li><a href="global.html#DisplaySearchResults">DisplaySearchResults</a></li><li><a href="global.html#DisplayTasks">DisplayTasks</a></li><li><a href="global.html#GetSearchResults">GetSearchResults</a></li><li><a href="global.html#GetTask">GetTask</a></li><li><a href="global.html#SearchConsultant">SearchConsultant</a></li><li><a href="global.html#SearchForTask">SearchForTask</a></li><li><a href="global.html#readFile">readFile</a></li><li><a href="global.html#textInString">textInString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Tue Sep 08 2026 20:33:26 GMT+1000 (Australian Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

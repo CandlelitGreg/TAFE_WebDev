@@ -1,7 +1,15 @@
 body {
     background-color: #ffffff;
-    font-family: Calibri, monospace;
+    font-family: Calibri;
+    font-size: large;
     margin: 0%;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family: Calibri;
+    padding: 1% 0.5%;
 }
 
 h2 {
@@ -39,7 +47,6 @@ nav.wide-nav {
     border-width: 3px 3px 3px 3px;
     padding: 7px;
     color: black;
-    text-decoration: none;
 }
 
 [id=tasksLinkWide] {
