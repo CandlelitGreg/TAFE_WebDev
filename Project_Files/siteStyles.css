@@ -163,22 +163,12 @@ table tr:hover {
     background-color: #A08463;
 }
 
-/* button{
-    width: 30%;
-    padding: 12px;
-    background-color: #3d3dff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-family: Georgia;
-    border-radius: 4px;
-} */
-
 
 [type="text"],
 [type="email"],
 [type="date"]
 {
+    min-width: 40%;
     width: auto;
     padding: 12px;
     border: 2px solid #077A99;
@@ -226,7 +216,7 @@ form {
 }
 
 select {
-    width : 60%;
+    width : 30%;
     padding: 12px;
     border: 2px solid #077A99;
     font-family: Georgia;
@@ -243,6 +233,17 @@ select {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+    }
+
+    div.consultantSelection {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        width: 80%;
+    }
+
+    select {
+        width: 80%;
     }
 
     header {
