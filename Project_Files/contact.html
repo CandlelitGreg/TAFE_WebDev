@@ -45,7 +45,7 @@
     <main>
         <div class="content-layout">
             <div></div>
-        <form onsubmit="return DisplayConfirmation(this, 'Thank you for contacting us.\nWe have recieved your message and will get back to you as soon as we can.')">
+        <form onsubmit="return DisplayConfirmation(this, `Hi ${document.getElementById('contactName').value.toString().split(' ')[0]}.\nThank you for contacting us.\nWe have recieved your message and will get back to you as soon as we can at ${document.getElementById('contactEmail').value.toString().trim()}.`)">
             <h2>Send us a message:</h2>
             <label for="contactName">Name:</label>
             <br>
