@@ -479,7 +479,6 @@ function ToggleDarkMode()
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
     let userTheme = urlParams.get('theme');
-    try {
     if (darkmode != true)
     {
         urlParams.set('theme', 'dark');
@@ -488,9 +487,6 @@ function ToggleDarkMode()
         urlParams.set('theme', 'light');
         darkmode = false;
     }
-} catch (error) {
-    console.log("Error caught", error.message);
-}
     let newPathQuery = window.location.pathname + '?' + urlParams.toString();
     window.history.pushState(null, '', newPathQuery);
     homePath = document.getElementById('homeLinkWide').href;
@@ -499,9 +495,17 @@ function ToggleDarkMode()
     tasksURL = new URL(tasksPath);
     contactPath = document.getElementById('contactLinkWide').href;
     contactURL = new URL(contactPath);
-    homeURL.searchParams.append('theme', 'dark');
-    tasksURL.searchParams.append('theme', 'dark');
-    contactURL.searchParams.append('theme', 'dark');
+    if (darkmode == true)
+    {
+        homeURL.searchParams.set('theme', 'dark');
+        tasksURL.searchParams.set('theme', 'dark');
+        contactURL.searchParams.set('theme', 'dark');
+    } else {
+        homeURL.searchParams.set('theme', 'light');
+        tasksURL.searchParams.set('theme', 'light');
+        contactURL.searchParams.set('theme', 'light');
+    }
+    
     document.getElementById('homeLinkWide').href = homeURL.toString();
     document.getElementById('homeLinkNarrow').href = homeURL.toString();
     document.getElementById('tasksLinkWide').href = tasksURL.toString();
