@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAFE Project Home</title>
     <link rel="stylesheet" href="siteStyles.css">
-    <script src="siteFuncs.js"></script>
 </head>
 <div class="page-layout">
 <body>
@@ -17,7 +16,7 @@
 
         <nav class="narrow-nav">
             <ul>
-                <a href="home.html">
+                <a id="homeLinkNarrow" href="home.html">
                     <img id="gelosLogoHome" src="/Assignment_Documents/Project_Resources/GE_Website-Assets/GE_Logo-inline-on-white.png" alt="Gelos Logo">
                 </a>
             </ul>
@@ -31,7 +30,7 @@
 
         <nav class="wide-nav">
             <ul>
-                <a href="home.html">
+                <a id="homeLinkWide" href="home.html">
                     <img id="gelosLogoHome" src="/Assignment_Documents/Project_Resources/GE_Website-Assets/GE_Logo-inline-on-white.png" alt="Gelos Logo">
                 </a>
             </ul>
@@ -78,11 +77,19 @@
             <img src="/Assignment_Documents/Project_Resources/GE_Website-Assets/AdobeStock_324337682.jpeg" alt="Collaboration meeting">
         </div>
     </div>
+    <script src="siteFuncs.js"></script>
 </body>
 </div>
 <footer>
-    <a href="https://share.tafensw.edu.au/share/items/5f1cec7b-1d03-446a-85b7-edb42692c34e/0/?attachment.uuid=df50b7f8-f190-4a3c-aad0-83297b3c395d">Gelos Privacy Policy</a>
-    <a href="https://share.tafensw.edu.au/share/items/5f1cec7b-1d03-446a-85b7-edb42692c34e/0/?attachment.uuid=20555b3b-e2d0-4273-8d8f-c763f025775d">Internet Usage Policy</a>
+    <div class="footer-links">
+        <br>
+        <a href="https://share.tafensw.edu.au/share/items/5f1cec7b-1d03-446a-85b7-edb42692c34e/0/?attachment.uuid=df50b7f8-f190-4a3c-aad0-83297b3c395d">Gelos Privacy Policy</a>
+        <a href="https://share.tafensw.edu.au/share/items/5f1cec7b-1d03-446a-85b7-edb42692c34e/0/?attachment.uuid=20555b3b-e2d0-4273-8d8f-c763f025775d">Internet Usage Policy</a>
+        <br>
+    </div>
+    <form id="darkMode" onsubmit="return ToggleDarkMode()">
+        <input type="submit" value="Toggle Dark Mode">
+    </form>
 </footer>
 
 </html>

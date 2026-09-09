@@ -5,6 +5,7 @@ const searchBar = document.getElementById("searchInput");
 const consultantSearchBar = document.getElementById("consultantSearchInput");
 let consultantListOG = [];
 let consultantListSplit = [];
+let darkmode = false;
 
 
 
@@ -49,7 +50,16 @@ async function readFile() {
   }
 }
 readFile();
-
+let queryString = window.location.search;
+let urlParams = new URLSearchParams(queryString);
+let userTheme = urlParams.get('theme');
+if (userTheme == 'dark')
+{
+    console.log(window.location);
+    darkmode = false;
+    console.log("last page had dark mode but this one does not")
+    ToggleDarkMode();
+}
 
 
 /**
@@ -59,7 +69,7 @@ readFile();
 * @returns {*} 
 */
 consultantSearchBar.addEventListener('input', (event) => {
-    if (event.target.value.trim() != null && event.target.value.trim() != '' && typeof(event.target.value.trim()) === "string") {
+    if (textInString("tasks.html", window.location.pathname) && event.target.value.trim() != null && event.target.value.trim() != '' && typeof(event.target.value.trim()) === "string") {
         SearchConsultant(event.target.value.trim().toString());
     }
 })
@@ -426,4 +436,95 @@ function textInString(text, string)
         result = true;
     }
     return result;
+}
+
+/**
+ * This function toggles dark mode and all available links to include appropriate dark theme query
+ * @returns {bool} - false return prevents POST request from reloading page
+ */
+function ToggleDarkMode()
+{
+    console.log("function entered");
+    let pagePath = window.location.pathname;
+    document.body.classList.toggle('darkmode');
+    console.log("body edited");
+    document.querySelector('header').classList.toggle('darkmode');
+    document.getElementById('contactLinkWide').classList.toggle('darkmode');
+    document.getElementById('tasksLinkWide').classList.toggle('darkmode');
+    document.querySelector('.header-grid').classList.toggle('darkmode');
+    document.getElementById('contactLinkNarrow').classList.toggle('darkmode');
+    document.getElementById('tasksLinkNarrow').classList.toggle('darkmode');
+    document.querySelector('.narrow-nav').classList.toggle('darkmode');
+    switch (true){
+        case (textInString("tasks.html", pagePath)):
+            document.querySelector('input').classList.toggle('darkmode');
+            document.querySelector('select').classList.toggle('darkmode');
+            document.getElementById('consultantSearchInput').classList.toggle('darkmode');
+            document.getElementById('taskConsultant').classList.toggle('darkmode');
+            document.getElementById('taskDueDate').classList.toggle('darkmode');
+            document.getElementById('searchInput').classList.toggle('darkmode');
+            document.querySelector('table').classList.toggle('darkmode');
+            break;
+        case (textInString("home.html", pagePath)):
+            break;
+        case (textInString("contact.html", pagePath)):
+            document.querySelector('input').classList.toggle('darkmode');
+            document.getElementById("contactEmail").classList.toggle('darkmode');
+            document.getElementById("contactComment").classList.toggle('darkmode');
+            break;
+    }
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let userTheme = urlParams.get('theme');
+    try {
+    if (darkmode != true)
+    {
+        urlParams.set('theme', 'dark');
+        darkmode = true;
+    } else {
+        urlParams.set('theme', 'light');
+        darkmode = false;
+    }
+} catch (error) {
+    console.log("Error caught", error.message);
+}
+    let newPathQuery = window.location.pathname + '?' + urlParams.toString();
+    window.history.pushState(null, '', newPathQuery);
+    homePath = document.getElementById('homeLinkWide').href;
+    homeURL = new URL(homePath);
+    tasksPath = document.getElementById('tasksLinkWide').href;
+    tasksURL = new URL(tasksPath);
+    contactPath = document.getElementById('contactLinkWide').href;
+    contactURL = new URL(contactPath);
+    homeURL.searchParams.append('theme', 'dark');
+    tasksURL.searchParams.append('theme', 'dark');
+    contactURL.searchParams.append('theme', 'dark');
+    document.getElementById('homeLinkWide').href = homeURL.toString();
+    document.getElementById('homeLinkNarrow').href = homeURL.toString();
+    document.getElementById('tasksLinkWide').href = tasksURL.toString();
+    document.getElementById('contactLinkWide').href = contactURL.toString();
+    document.getElementById('tasksLinkNarrow').href = tasksURL.toString();
+    document.getElementById('contactLinkNarrow').href = contactURL.toString();
+    return false;
+}
+
+/**
+ * Called from a form, the form element is hidden and the message is displayed in its place
+ * @param {html.form} element - HTML form element the function is called from
+ * @param {string} message - string representing the message to be displayed
+ * @returns 
+ */
+function DisplayConfirmation(element, message)
+{
+    element.style.contentVisibility = 'hidden';
+    let updatedHTML = '';
+    let splitMessage = message.split("\n");
+    for (let i = 0; i < splitMessage.length; i++)
+    {
+        updatedHTML += `<p>${splitMessage[i]}</p>
+                        <br>`;
+    }
+    element.parentElement.children[0].innerHTML = updatedHTML;
+    element.parentElement.children[0].style.setProperty('min-width', '45vw')
+    return false;
 }

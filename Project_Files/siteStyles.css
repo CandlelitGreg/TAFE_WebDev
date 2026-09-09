@@ -1,15 +1,22 @@
 body {
     background-color: #ffffff;
+    color: black;
     font-family: Calibri;
     font-size: large;
     margin: 0%;
+}
+
+body.darkmode {
+    background-color: #26282c;
+    color: white;
+
 }
 
 a{
     color: white;
     text-decoration: none;
     font-family: Calibri;
-    padding: 1% 0.5%;
+    padding: 0.5%;
 }
 
 h2 {
@@ -17,8 +24,13 @@ h2 {
 }
 
 header {
+    color: black;
     font-family: Georgia;
     font-size: 16pt;
+}
+
+header.darkmode {
+    color: white;
 }
 
 nav {
@@ -49,11 +61,26 @@ nav.wide-nav {
     color: black;
 }
 
+[id=contactLinkWide].darkmode,
+[id=tasksLinkWide].darkmode
+{
+    border:#DDAB5E solid;
+    background-color: #A08463;
+}
+
 [id=tasksLinkWide] {
     border-width: 3px 3px 1.5px 3px;
 }
 
 [id=contactLinkWide] {
+    border-width: 1.5px 3px 3px 3px;
+}
+
+[id=tasksLinkWide].darkmode {
+    border-width: 3px 3px 1.5px 3px;
+}
+
+[id=contactLinkWide].darkmode {
     border-width: 1.5px 3px 3px 3px;
 }
 
@@ -65,6 +92,12 @@ nav.wide-nav {
     font-size: 16pt;
     color: black;
     text-decoration: none;
+}
+
+[id=tasksLinkNarrow].darkmode,
+[id=contactLinkNarrow].darkmode
+{
+    color: white;
 }
 
 a:hover {
@@ -92,9 +125,10 @@ footer {
     border: solid #077A99;
     border-width: 6px 0px 0px 0px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 0% 1.5%;
     margin: 0;
+    justify-content: space-between;
 }
 
 div.header-grid {
@@ -102,6 +136,13 @@ div.header-grid {
     flex-direction: row;
     justify-content: space-between;
     border: solid #DDAB5E;
+    border-width: 0px 0px 6.5px 0px;
+    padding: 0px 25px;
+    margin: 0;
+}
+
+div.header-grid.darkmode {
+    border: solid #A08463;
     border-width: 0px 0px 6.5px 0px;
     padding: 0px 25px;
     margin: 0;
@@ -150,6 +191,12 @@ table th, table td {
     text-align: center;
 }
 
+table.darkmode th, table.darkmode td {
+    border: 3px solid #8fa6d7;
+    padding: 8px;
+    text-align: center;
+}
+
 table th {
     background-color: #077A99;
     color: white;
@@ -160,6 +207,10 @@ table th {
 
 table tr:nth-child(even) {
     background-color: #94B2BF;
+}
+
+table.darkmode tr:nth-child(even) {
+    background-color: #424754;
 }
 
 table tbody td:hover {
@@ -182,6 +233,13 @@ table tr:hover {
     font-family: Georgia;
 }
 
+[type="text"].darkmode,
+[type="email"].darkmode,
+[type="date"].darkmode
+{
+    background-color: #424754;
+    color: #fff;
+}
 
 input[type="submit"] {
     min-width: none;
@@ -218,6 +276,13 @@ input[type="submit"] {
     width: 85%;
 }
 
+[id=contactComment].darkmode,
+[id=contactEmail].darkmode
+{
+    background-color: #424754;
+    color: white;
+}
+
 form {
     width: 100%;
 }
@@ -227,6 +292,24 @@ select {
     padding: 12px;
     border: 2px solid #077A99;
     font-family: Georgia;
+}
+
+[id=darkMode] {
+    display: flex;
+    justify-content: end;
+    padding: 2%;
+}
+
+input.darkmode,
+select.darkmode {
+    background-color: #424754;
+    color: white;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
 }
 
 @media screen and (max-width: 825px) {
@@ -283,7 +366,23 @@ select {
         border: #A08463 5px solid;
     }
 
+    nav.narrow-nav.darkmode {
+        background: #26282c;
+        border: #A08463 5px solid;
+    }
+
     nav.wide-nav {
         content-visibility: hidden;
     }
+
+    footer {
+        flex-direction: column;
+        padding: 0% 0% 4% 3%;
+    }
+
+    [id=darkMode] {
+        justify-content: left;
+        padding:0%;
+    }
 }
+
