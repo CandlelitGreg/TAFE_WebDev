@@ -50,6 +50,9 @@ async function readFile() {
   }
 }
 readFile();
+
+//Checks page url and whether a dark theme query is detected
+//If so, the dark mode is toggled on
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString);
 let userTheme = urlParams.get('theme');
@@ -512,7 +515,7 @@ function ToggleDarkMode()
  * Called from a form, the form element is hidden and the message is displayed in its place
  * @param {html.form} element - HTML form element the function is called from
  * @param {string} message - string representing the message to be displayed
- * @returns 
+ * @returns {bool} - returns false to prevent POST request
  */
 function DisplayConfirmation(element, message)
 {
